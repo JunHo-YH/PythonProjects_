@@ -22,11 +22,11 @@ def write_excel_template(filename, sheetname, listdata):
 
 product_lists = list()
 
-for page_num in range(10):
+for page_num in range(10): # 여러 페이지 크롤링하기
     if page_num == 0:
         res = requests.get("https://davelee-fun.github.io/")
     else:
-        res = requests.get("https://davelee-fun.github.io/page" + str(page_num + 1))
+        res = requests.get("https://davelee-fun.github.io/page" + str(page_num + 1)) # 페이지 수
     soup = BeautifulSoup(res.content, 'html.parser')
 
     data = soup.select('div.card')
